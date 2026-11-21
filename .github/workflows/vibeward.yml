@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: JSiapoDEV/vibeward@053e2729fbcd8216c287b042318bdec13ff7e614 # 0.8.4 before its tag
+      - uses: ./.github/actions/vibeward # action.yml + issue.mjs from 053e272, CLI 0.8.3 from npm
         with:
           path: '.'
           # lang: es               # summary, issue and report in Spanish
