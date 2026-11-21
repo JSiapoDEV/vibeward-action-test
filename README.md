@@ -5,3 +5,5 @@ A deliberately insecure throwaway app, used to test the
 the run summary, the pending-items issue and the SARIF upload.
 
 Nothing here is deployed and nothing here holds a real key.
+
+Runs: see the Actions tab.
