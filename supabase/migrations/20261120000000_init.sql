@@ -15,7 +15,7 @@ create table public.orders (
   user_id uuid references auth.users (id),
   total numeric
 );
--- No row level security on orders.
+alter table public.orders enable row level security;
 
 create or replace function public.run_report(q text)
 returns setof json
