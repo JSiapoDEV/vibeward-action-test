@@ -9,7 +9,7 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/vibeward # action.yml + issue.mjs from 053e272, CLI 0.8.3 from npm
         with:
           path: '.'

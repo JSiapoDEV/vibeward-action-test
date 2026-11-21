@@ -16,3 +16,10 @@ create table public.orders (
   total numeric
 );
 alter table public.orders enable row level security;
+
+create or replace function public.order_count()
+returns bigint
+language sql
+security definer
+set search_path = ''
+as $$ select count(*) from public.orders $$;
