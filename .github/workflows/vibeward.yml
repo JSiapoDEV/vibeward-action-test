@@ -1,0 +1,17 @@
+# .github/workflows/vibeward.yml
+name: vibeward
+on: [push, pull_request]
+permissions:
+  security-events: write   # SARIF to the Security tab
+  issues: write            # the "vibeward: pending" issue
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: JSiapoDEV/vibeward@v0.8.3
+        with:
+          path: '.'
+          # lang: es               # summary, issue and report in Spanish
+          # supabase: audit.json   # optional: a committed Supabase export
