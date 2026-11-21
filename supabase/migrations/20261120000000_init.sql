@@ -6,9 +6,9 @@ create table public.profiles (
 );
 alter table public.profiles enable row level security;
 
--- Anyone can rewrite anyone's profile.
-create policy "profiles are editable" on public.profiles
-  for update using (true);
+-- Each user edits only their own profile.
+create policy "own profile is editable" on public.profiles
+  for update using (auth.uid() = id);
 
 create table public.orders (
   id bigint generated always as identity primary key,
@@ -16,13 +16,3 @@ create table public.orders (
   total numeric
 );
 alter table public.orders enable row level security;
-
-create or replace function public.run_report(q text)
-returns setof json
-language plpgsql
-security definer
-as $$
-begin
-  return query execute q;
-end;
-$$;
